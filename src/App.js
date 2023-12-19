@@ -7,7 +7,9 @@ function App() {
   return (
     <>
       <Navbar title="TextUtils" home="Home" />
-      <TextForm textArea="Enter your text here" />
+      <div className="container my-3">
+        <TextForm heading="Hey there!" button="Convert to UpperCase" />
+      </div>
     </>
   );
 }

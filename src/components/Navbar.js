@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 export default function Navbar(props) {
   return (
@@ -23,7 +24,7 @@ export default function Navbar(props) {
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
                 <a className="nav-link active" aria-current="page" href="/">
-                  Home
+                  {props.home}
                 </a>
               </li>
               <li className="nav-item">
@@ -85,3 +86,13 @@ export default function Navbar(props) {
     </div>
   );
 }
+
+Navbar.propTypes = {
+  title: PropTypes.string,
+  home: PropTypes.string,
+};
+
+Navbar.defaultProps = {
+  title: "Title Here",
+  home: "Home button here",
+};

@@ -8,13 +8,15 @@ import { useState } from "react";
 
 function App() {
   // const [darkMode, setDarkMode] = useState(false);
-  const [mode, setMode] = useState("dark");
+  const [mode, setMode] = useState("white");
 
   const toggleMode = () => {
-    if (mode === "Light") {
-      setMode("Dark");
+    if (mode === "dark") {
+      setMode("light");
+      document.body.style.backgroundColor = "white";
     } else {
-      setMode("Light");
+      setMode("dark");
+      document.body.style.backgroundColor = "grey";
     }
   };
   return (

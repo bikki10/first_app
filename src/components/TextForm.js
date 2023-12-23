@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import HTMLReactParser from "html-react-parser";
 export default function TextForm(props) {
   const [text, setText] = useState(""); // array destructuring syntax
   //   text = "new textsbdjs"; // Wrong way of changing the value of text variable

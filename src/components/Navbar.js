@@ -71,7 +71,7 @@ export default function Navbar(props) {
         </div>
         <div
           className={`form-check form-switch text-${
-            props.mode === "dark" ? "light" : "dark"
+            props.mode === "dark" ? "light" : "black"
           }`}
         >
           <input

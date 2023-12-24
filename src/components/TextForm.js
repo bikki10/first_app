@@ -1,20 +1,22 @@
 import React, { useState } from "react";
 export default function TextForm(props) {
   const [text, setText] = useState(""); // array destructuring syntax
-  //   text = "new textsbdjs"; // Wrong way of changing the value of text variable
-  //   setText("new textsbjsb"); // Correct way of changing the value of text variable
+    // text = "new textsbdjs"; // Wrong way of changing the value of text variable
+    // setText("new textsbjsb"); // Correct way of changing the value of text variable
   const handleOnChange = (event) => {
     // event is given as a parameter
-    console.log("on change");
+    // console.log("on change");
     setText(event.target.value); //Event handling syntax in JS
   };
   const handleUpClick = () => {
     let newText = text.toUpperCase();
     setText(newText);
+    props.showAlert("Converted to Uppercase", "success");
   };
   const handleDownClick = () => {
     let newText = text.toLowerCase();
     setText(newText);
+    props.showAlert("Converted to Lowercase", "success");
   };
   return (
     <>
@@ -37,17 +39,10 @@ export default function TextForm(props) {
           }}
         />
       </div>
-      <button
-        className="btn btn-primary mx-3 my-2"
-        onClick={handleUpClick}
-        
-      >
+      <button className="btn btn-primary mx-3 my-2" onClick={handleUpClick}>
         Convert to Uppercase
       </button>
-      <button
-        className="btn btn-primary my-2"
-        onClick={handleDownClick}
-      >
+      <button className="btn btn-primary my-2" onClick={handleDownClick}>
         Convert to Lowercase
       </button>
       <div

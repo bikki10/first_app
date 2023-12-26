@@ -57,7 +57,7 @@ export default function TextForm(props) {
         </p>
         <p>
           Estimated time to read the text:{" "}
-          {Math.floor(0.0085 * text.split(" ").length)} minutes.
+          {Math.round(0.0085 * text.split(" ").length)} minutes.
         </p>
       </div>
     </>

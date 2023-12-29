@@ -39,10 +39,10 @@ export default function TextForm(props) {
           }}
         />
       </div>
-      <button className="btn btn-primary mx-3 my-2" onClick={handleUpClick}>
+      <button className="btn btn-primary mx-1 my-2" onClick={handleUpClick}>
         Convert to Uppercase
       </button>
-      <button className="btn btn-primary my-2" onClick={handleDownClick}>
+      <button className="btn btn-primary mx-1 my-2" onClick={handleDownClick}>
         Convert to Lowercase
       </button>
       <div
@@ -53,7 +53,9 @@ export default function TextForm(props) {
       >
         <h2>Your text Summary</h2>
         <p>
-          {text.split(" ").length} words and {text.length} characters
+          {text.split(" ").filter((element)=>{
+            return element.length!==0
+          }).length} words and {text.length} characters
         </p>
         <p>
           Estimated time to read the text:{" "}

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 export default function TextForm(props) {
   const [text, setText] = useState(""); // array destructuring syntax
-    // text = "new textsbdjs"; // Wrong way of changing the value of text variable
-    // setText("new textsbjsb"); // Correct way of changing the value of text variable
+  // text = "new textsbdjs"; // Wrong way of changing the value of text variable
+  // setText("new textsbjsb"); // Correct way of changing the value of text variable
   const handleOnChange = (event) => {
     // event is given as a parameter
     // console.log("on change");
@@ -17,6 +17,12 @@ export default function TextForm(props) {
     let newText = text.toLowerCase();
     setText(newText);
     props.showAlert("Converted to Lowercase", "success");
+  };
+
+  const removeExtraSpaces = () => {
+    let newText = text.replace(/\s+/g, " ").trim();
+    setText(newText);
+    props.showAlert("Extra Spaces Removed!", "success");
   };
   return (
     <>
@@ -45,6 +51,10 @@ export default function TextForm(props) {
       <button className="btn btn-primary mx-1 my-2" onClick={handleDownClick}>
         Convert to Lowercase
       </button>
+      <button className="btn btn-primary mx-1 my-2" onClick={removeExtraSpaces}>
+        Remove Extra Spaces
+      </button>
+
       <div
         className="container my-2"
         style={{
@@ -53,13 +63,18 @@ export default function TextForm(props) {
       >
         <h2>Your text Summary</h2>
         <p>
-          {text.split(" ").filter((element)=>{
-            return element.length!==0
-          }).length} words and {text.length} characters
+          {
+            text.split(/\s+/).filter((element) => {
+              return element.length !== 0;
+            }).length
+          }{" "}
+          words and {text.length} characters
         </p>
         <p>
           Estimated time to read the text:{" "}
-          {Math.round(0.0085 * text.split(" ").length)} minutes.
+          {Math.floor(0.0085 * text.split(" ").filter((element) => {
+              return element.length !== 0;
+            }).length)} minutes.
         </p>
       </div>
     </>

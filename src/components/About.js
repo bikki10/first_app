@@ -1,14 +1,24 @@
-import React, { useState } from "react";
+// import React, { useState } from "react";
 
 export default function About(props) {
-  const [myStyle, setMyStyle] = useState({
-    color: "black",
-    backgroundColor: "white",
-  });
+  // const [myStyle, setMyStyle] = useState({
+  //   color: "black",
+  //   backgroundColor: "white",
+  // });
+
+  let myStyle = {
+    color: props.mode === "dark" ? "white" : "black",
+    background: props.mode === "dark" ? "rgb(17 81 133)" : "white",
+  };
 
   return (
-    <div className="container pb-1 rounded-2" style={myStyle}>
-      <h1 className="my-3">About Us</h1>
+    <div className="container pb-1 rounded-2">
+      <h1
+        className="link-underline-light my-3"
+        style={{ color: props.mode === "dark" ? "white" : "#042743" }}
+      >
+        About Us
+      </h1>
       <div className="accordion" id="accordionExample">
         <div className="accordion-item">
           <h2 className="accordion-header">
@@ -21,7 +31,7 @@ export default function About(props) {
               aria-controls="collapseOne"
               style={myStyle}
             >
-              Analyze your text
+              <strong>Analyze your text</strong>
             </button>
           </h2>
           <div
@@ -30,10 +40,11 @@ export default function About(props) {
             data-bs-parent="#accordionExample"
             style={myStyle}
           >
-            <div className="accordion-body"></div>
-            TextUtils gives you a way to analyze your text quickly and
-            efficiently. Be it word or character count, it is able to perform
-            both tasks.
+            <div className="accordion-body">
+              TextUtils gives you a way to analyze your text quickly and
+              efficiently. Be it word or character count, it is able to perform
+              both tasks.
+            </div>
           </div>
         </div>
         <div className="accordion-item">
@@ -47,7 +58,7 @@ export default function About(props) {
               aria-controls="collapseTwo"
               style={myStyle}
             >
-              Free to use
+              <strong>Free to use</strong>
             </button>
           </h2>
           <div
@@ -75,7 +86,7 @@ export default function About(props) {
               aria-controls="collapseThree"
               style={myStyle}
             >
-              Browser Compactible
+              <strong>Browser Compactible</strong>
             </button>
           </h2>
           <div
